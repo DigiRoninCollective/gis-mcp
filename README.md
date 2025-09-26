@@ -13,9 +13,9 @@ A Model Context Protocol (MCP) server implementation that connects Large Languag
 
 🌐 **Website:** [gis-mcp.com](https://gis-mcp.com)
 
-> Current version is 0.8.0
+> Current version is 0.9.0 (Beta)
 >
-> Version 0.9.0 (Beta) is under active development. We welcome contributions and developers to join us in building this project.
+> Version 0.10.0 (Beta) is under active development. We welcome contributions and developers to join us in building this project.
 
 ## 🎥 Demo
 
@@ -455,7 +455,6 @@ This section provides a comprehensive list of all available functions organized 
 **Interactive Web Map Visualization (Folium):**
 
 - `create_web_map` – Generate interactive web maps (HTML) with legends, basemaps, layer toggling, titles, and tooltips
-
 
 ### 🔷 Administrative Boundaries Functions (1 total)
 
