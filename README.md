@@ -13,7 +13,7 @@ A Model Context Protocol (MCP) server implementation that connects Large Languag
 
 🌐 **Website:** [gis-mcp.com](https://gis-mcp.com)
 
-> Current version is 0.9.0 (Beta)
+> Current version is 0.9.0 (Beta):
 >
 > Version 0.10.0 (Beta) is under active development. We welcome contributions and developers to join us in building this project.
 
