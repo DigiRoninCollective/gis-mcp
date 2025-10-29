@@ -244,8 +244,10 @@ html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
       <p class="sub">The MCP server that connects GIS Libraries(Shapely, PyProj, GeoPandas, Rasterio, and PySAL, etc) to LLMs — enabling precise geospatial operations, projections, raster processing, and spatial statistics in natural language workflows.</p>
       <div class="cta-row">
         <a class="btn" href="getting-started/">Getting Started</a>
-        <a href="https://metamask.app.link/send/?address=0x2253ce06b7bb4f215fd1aa64d599abaf5c27d3fa" style="display:inline-block; margin:0;"><img src="https://img.shields.io/badge/Donate-ETH-orange?logo=ethereum&style=for-the-badge" alt="Donate ETH"/></a>
         <a class="btn secondary" href="api/shapely/">Explore API</a>
+      </div>
+      <div style="margin:24px 0 0 0;">
+        <a href="donnate/" style="display:inline-block;"><img src="https://img.shields.io/badge/Donate-ETH-orange?logo=ethereum&style=for-the-badge" alt="Donate ETH"/></a>
       </div>
       <!-- Begin Substack Signup Form -->
       <form action="https://gismcp.substack.com/subscribe" method="post" target="_blank" style="margin: 2em 0; display: flex; justify-content: center; gap: 0.5em; flex-wrap: wrap;">
