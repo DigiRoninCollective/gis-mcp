@@ -139,7 +139,7 @@ nav:
           - CRS, Area & Distance Analysis: examples/crs_area_distance_analysis.md
       - Contributing: contributing.md
       - Donate (Support Us): donate.md
-sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.  #   - Showcases (Examples):
+  #   - Showcases (Examples):
   #       - Researcher: showcases/researcher.md
   #       - Programmers: showcases/programmers.md
   #       - Technicians: showcases/technicians.md
