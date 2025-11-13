@@ -115,15 +115,19 @@ pip install uv
 ```bash
 uv venv --python=3.10
 ```
+
 3. Activate the Virtual Environment:
 
-On Windows:
+On Windows (PowerShell):
+
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
-/path/to/.venv/Scripts/activate
-```
-On Ubuntu:
-```
-source /path/to/.venv/bin/activate
+
+On Linux:
+
+```bash
+source .venv/bin/activate
 ```
 
 4. Install the package:
