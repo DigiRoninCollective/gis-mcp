@@ -19,7 +19,7 @@ theme:
 nav:
   - HOME: index.md
   - Getting Started: getting-started.md
-      - DOCUMENTATIONS:
+  - DOCUMENTATIONS:
           - Installations:
               - Overview: install/README.md
               - Docker: install/docker.md
