@@ -48,6 +48,7 @@ A Model Context Protocol (MCP) server implementation that connects Large Languag
   - [Docker Installation](#-docker-installation)
   - [pip Installation](#-pip-installation)
   - [Development Installation](#-development-installation)
+- [Build Your First GIS AI Agent](#-build-your-first-gis-ai-agent)
 - [Available Functions](#-available-functions)
   - [Shapely Functions](#-shapely-functions-29-total)
   - [PyProj Functions](#-pyproj-functions-13-total)
