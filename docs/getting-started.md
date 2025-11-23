@@ -131,6 +131,22 @@ See the `pyproject.toml` or documentation for the full list of extras and their 
 
 For more information on fetching external datasets (climate, ecology, movement, satellite imagery, and more), see the [Data Gathering guide](data-gathering/README.md).
 
+### Build Your First GIS AI Agent
+
+Ready to create your own AI agent that can perform geospatial operations? Our comprehensive tutorial will guide you from zero to hero!
+
+👉 **[Build Your First GIS AI Agent with LangChain →](gis-ai-agent.md)**
+
+Learn how to:
+
+- Set up the GIS MCP server in HTTP mode
+- Build a LangChain agent from scratch
+- Connect your agent to GIS tools
+- Use OpenRouter to access multiple AI models (DeepSeek, Gemini, GPT-4, Claude, etc.)
+- Customize and extend your agent
+
+Perfect for developers, data scientists, and anyone interested in building AI-powered geospatial applications.
+
 ### Next steps
 
 - Explore the API Reference in the sidebar (Shapely, PyProj, GeoPandas, Rasterio, PySAL)

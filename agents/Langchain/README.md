@@ -236,21 +236,13 @@ gis-mcp
 **✅ You should see**:
 
 ```
-Starting GIS MCP server with http transport on localhost:9010
-MCP endpoint will be available at: http://localhost:9010/mcp
+Starting GIS MCP server with http transport on 0.0.0.0:9010
+MCP endpoint will be available at: http://0.0.0.0:9010/mcp
 ```
 
 **⚠️ Important**: Keep this terminal window open! The server needs to keep running. You'll use your other terminal for the next steps.
 
-**✅ Verification**: Test that the server is running:
-
-Open a **new terminal** and run:
-
-```bash
-curl http://localhost:9010/mcp/tools/list
-```
-
-You should see a list of available GIS tools in JSON format.
+**✅ Verification**: If you see the messages above, your server is running correctly! The server is now ready to accept connections.
 
 ---
 
