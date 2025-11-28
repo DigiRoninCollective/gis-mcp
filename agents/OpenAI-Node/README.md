@@ -10,6 +10,13 @@ Welcome! This tutorial will guide you on setting up the gis-mcp server and build
 - [Prerequisites](#prerequisites)
 - [Step 1: Install GIS MCP Server](#step-1-install-gis-mcp-server)
 - [Step 2: Install Agent Dependencies](#step-2-install-agent-dependencies)
+- [Step 3: Get Your OpenAI API Key](#step-3-get-your-openai-api-key)
+- [Security Notice](#security-notice)
+- [Step 4: Install Nodejs Dependencies](#step-4-install-nodejs-dependencies)
+- [Step 5: Start the MCP Server](#step-5-start-the-mcp-server)
+- [Step 6: Run the Agent Code](#step-6-run-the-agent-code)
+- [Step 7: Next Steps](#step-7-next-steps)
+
 
 ## What You'll Build
 
