@@ -102,6 +102,8 @@ build/
 # Documentation
 docs/_build/
 site/
+agents/OpenAI-Node/.env
+agents/OpenAI-Node/node_modules/
 
 # Cache
 .cache/
