@@ -5,6 +5,7 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mahdin75/gis-mcp)
 [![Transport](https://img.shields.io/badge/Transport-HTTP%20%7C%20stdio-blue)](https://github.com/mahdin75/gis-mcp)
 [![Build Agent with LangChain](https://img.shields.io/badge/LangChain-Build%20AI%20Agent-FF6B35?logo=langchain&logoColor=white)](https://gis-mcp.com/gis-ai-agent/langchain)
+[![Build Agent with OpenAI Node.js](https://img.shields.io/badge/OpenAI%20Node.js-Build%20AI%20Agent-111827?logo=openai&logoColor=white)](https://gis-mcp.com/gis-ai-agent/openai-nodejs)
 
 <br/></br>
 
