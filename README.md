@@ -3,8 +3,8 @@
 <div align="center">
 
 [![PyPI version](https://img.shields.io/pypi/v/gis-mcp.svg)](https://pypi.org/project/gis-mcp/)
-[![PyPI downloads](https://img.shields.io/pypi/dm/gis-mcp.svg)](https://pypi.org/project/gis-mcp/)
 [![Docker Installation](https://img.shields.io/badge/Docker-Installation-2496ED?logo=docker&logoColor=white)](https://gis-mcp.com/install/docker/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/gis-mcp.svg)](https://pypi.org/project/gis-mcp/)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mahdin75/gis-mcp)
 [![Transport](https://img.shields.io/badge/Transport-HTTP%20%7C%20stdio-blue)](https://github.com/mahdin75/gis-mcp)
 [![Build Agent with LangChain](https://img.shields.io/badge/LangChain-Build%20AI%20Agent-FF6B35?logo=langchain&logoColor=white)](https://gis-mcp.com/gis-ai-agent/langchain)
