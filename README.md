@@ -1,13 +1,17 @@
 # GIS MCP Server
 
+<div align="center">
+
 [![PyPI version](https://img.shields.io/pypi/v/gis-mcp.svg)](https://pypi.org/project/gis-mcp/)
 [![PyPI downloads](https://img.shields.io/pypi/dm/gis-mcp.svg)](https://pypi.org/project/gis-mcp/)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mahdin75/gis-mcp)
 [![Transport](https://img.shields.io/badge/Transport-HTTP%20%7C%20stdio-blue)](https://github.com/mahdin75/gis-mcp)
 [![Build Agent with LangChain](https://img.shields.io/badge/LangChain-Build%20AI%20Agent-FF6B35?logo=langchain&logoColor=white)](https://gis-mcp.com/gis-ai-agent/langchain)
 [![Build Agent with OpenAI NodeJS](https://img.shields.io/badge/OpenAI%20NodeJS-111827?logo=openai&logoColor=white)](https://gis-mcp.com/gis-ai-agent/openai-nodejs)
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@gis-mcp)
-<br/></br>
+[![YouTube](https://img.shields.io/badge/YouTube-B91C1C?logo=youtube&logoColor=white)](https://www.youtube.com/@gis-mcp)
+[![Discord](https://img.shields.io/badge/Discord-7289DA?logo=discord&logoColor=white)](https://discord.gg/SeVmVhVbk)
+
+</div>
 
 <div align="center">
   <h3>✨ Want to perform accurate geospatial analysis in your chatbot? ✨</h3>
@@ -733,7 +737,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 | Project Name                                                                                        | Category                   | Description                                                                                                   |
 | --------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [Model Context Protocol](https://github.com/anthropics/model-context-protocol)                      | MCP Related                | The core MCP implementation                                                                                   |
+| [Model Context Protocol](https://github.com/modelcontextprotocol/modelcontextprotocol)              | MCP Related                | The core MCP Specification                                                                                    |
+| [FastMCP](https://github.com/jlowin/fastmcp)                                                        | MCP Related                | The fast, Pythonic way to build MCP servers and clients                                                       |
 | [Shapely](https://github.com/shapely/shapely)                                                       | Geospatial Analysis        | Python package for manipulation and analysis of geometric objects                                             |
 | [PyProj](https://github.com/pyproj4/pyproj)                                                         | Geospatial Analysis        | Python interface to PROJ library                                                                              |
 | [GeoPandas](https://github.com/geopandas/geopandas)                                                 | Geospatial Analysis        | Python package for working with geospatial data                                                               |
