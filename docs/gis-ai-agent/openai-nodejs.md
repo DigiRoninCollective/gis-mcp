@@ -1,4 +1,4 @@
-# Build a GIS Agent using gis-mcp and build an OpenAI-Nodejs geospatial agent.
+# Build a GIS AI Agent with OpenAI-Nodejs
 
 Welcome! This tutorial will guide you on setting up the gis-mcp server and building a Node.js agent that can perform geospatial operations.
 
