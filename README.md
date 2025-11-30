@@ -1,5 +1,7 @@
 # GIS MCP Server
 
+<div align="center">
+
 [![PyPI version](https://img.shields.io/pypi/v/gis-mcp.svg)](https://pypi.org/project/gis-mcp/)
 [![PyPI downloads](https://img.shields.io/pypi/dm/gis-mcp.svg)](https://pypi.org/project/gis-mcp/)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mahdin75/gis-mcp)
@@ -7,7 +9,8 @@
 [![Build Agent with LangChain](https://img.shields.io/badge/LangChain-Build%20AI%20Agent-FF6B35?logo=langchain&logoColor=white)](https://gis-mcp.com/gis-ai-agent/langchain)
 [![Build Agent with OpenAI NodeJS](https://img.shields.io/badge/OpenAI%20NodeJS-111827?logo=openai&logoColor=white)](https://gis-mcp.com/gis-ai-agent/openai-nodejs)
 [![YouTube](https://img.shields.io/badge/YouTube-B91C1C?logo=youtube&logoColor=white)](https://www.youtube.com/@gis-mcp)
-<br/></br>
+
+</div>
 
 <div align="center">
   <h3>✨ Want to perform accurate geospatial analysis in your chatbot? ✨</h3>
