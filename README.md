@@ -38,15 +38,6 @@ A Model Context Protocol (MCP) server implementation that connects Large Languag
   <img src="docs/demo.gif" alt="GIS MCP Server Demo" width="800"/>
 </div>
 
-### Rasterio Demo
-
-<div align="center">
-  <a href="https://www.veed.io/view/95ff85f4-efbb-4154-9a04-d966c6ae1737?panel=share">
-    <br/>
-    <em>Click to watch the Rasterio demo video or go to docs folder</em>
-  </a>
-</div>
-
 ## 📋 Table of Contents
 
 - [Features](#-features)
@@ -394,6 +385,8 @@ Ready to create your own AI agent that can perform geospatial operations? Our co
 👉 **[Follow the complete tutorial →](https://gis-mcp.com/gis-ai-agent/)**
 
 📝 **[Read the Medium article →](https://medium.com/@mahdinazari75/build-your-first-gis-ai-agent-by-gis-mcp-server-langchain-c0c1bfa36f6d)**
+
+🎥 **[Watch tutorials on YouTube →](https://www.youtube.com/@gis-mcp)**
 
 The tutorial is beginner-friendly and requires no prior AI or GIS experience. You'll build a working agent that can:
 
@@ -743,7 +736,11 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 | [PyProj](https://github.com/pyproj4/pyproj)                                                         | Geospatial Analysis        | Python interface to PROJ library                                                                              |
 | [GeoPandas](https://github.com/geopandas/geopandas)                                                 | Geospatial Analysis        | Python package for working with geospatial data                                                               |
 | [Rasterio](https://github.com/rasterio/rasterio)                                                    | Geospatial Analysis        | Python package for reading and writing geospatial raster data                                                 |
+| [Fiona](https://github.com/Toblerity/Fiona)                                                         | Geospatial Analysis        | Python interface to OGR library for reading and writing vector geospatial data formats                        |
 | [PySAL](https://github.com/pysal/pysal)                                                             | Geospatial Analysis        | Python spatial analysis library for geospatial data science                                                   |
+| [Folium](https://github.com/python-visualization/folium)                                            | Visualization              | Python library for creating interactive web maps using Leaflet.js                                             |
+| [PyDeck](https://github.com/visgl/deck.gl)                                                          | Visualization              | Python library for creating advanced 3D visualizations and interactive maps                                   |
+| [Matplotlib](https://github.com/matplotlib/matplotlib)                                              | Visualization              | Python plotting library for creating static maps and visualizations                                           |
 | [cdsapi](https://github.com/ecmwf/cdsapi)                                                           | Geospatial Data Collecting | Python API to access the Copernicus Climate Data Store (CDS)                                                  |
 | [pygadm](https://github.com/12rambau/pygadm)                                                        | Geospatial Data Collecting | Easy access to administrative boundary defined by GADM from Python scripts                                    |
 | [pygbif](https://github.com/gbif/pygbif)                                                            | Geospatial Data Collecting | Python client for the GBIF API (ecology and biodiversity data)                                                |
