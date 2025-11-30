@@ -6,7 +6,7 @@
 [![Transport](https://img.shields.io/badge/Transport-HTTP%20%7C%20stdio-blue)](https://github.com/mahdin75/gis-mcp)
 [![Build Agent with LangChain](https://img.shields.io/badge/LangChain-Build%20AI%20Agent-FF6B35?logo=langchain&logoColor=white)](https://gis-mcp.com/gis-ai-agent/langchain)
 [![Build Agent with OpenAI NodeJS](https://img.shields.io/badge/OpenAI%20NodeJS-111827?logo=openai&logoColor=white)](https://gis-mcp.com/gis-ai-agent/openai-nodejs)
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@gis-mcp)
+[![YouTube](https://img.shields.io/badge/YouTube-B91C1C?logo=youtube&logoColor=white)](https://www.youtube.com/@gis-mcp)
 <br/></br>
 
 <div align="center">
