@@ -5,10 +5,9 @@ import json
 from pygbif import species, occurrences
 
 from ..mcp import gis_mcp
+from ..storage_config import get_storage_path, resolve_path
 
 logger = logging.getLogger(__name__)
-
-DEFAULT_PATH = Path(__file__).resolve().parent / "ecology_data"
 
 @gis_mcp.resource("gis://operations/ecology")
 def get_ecology_operations() -> dict:
@@ -48,7 +47,12 @@ def download_species_occurrences(
         {"status": "success", "file_path": "..."} or {"status": "error", "message": "..."}
     """
     try:
-        out_dir = Path(path) if path else DEFAULT_PATH
+        if path:
+            out_dir = resolve_path(path, relative_to_storage=True)
+        else:
+            # Use storage path with ecology_data subdirectory
+            storage = get_storage_path()
+            out_dir = storage / "ecology_data"
         out_dir.mkdir(parents=True, exist_ok=True)
 
         # Get taxon key

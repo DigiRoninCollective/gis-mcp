@@ -4,10 +4,9 @@ from typing import Optional, Dict, Any
 
 import pygadm
 from ..mcp import gis_mcp
+from ..storage_config import get_storage_path, resolve_path
 
 logger = logging.getLogger(__name__)
-
-DEFAULT_PATH = Path(__file__).resolve().parent / "administrative_boundaries"
 
 ALIASES = {
     "USA": "United States",
@@ -43,7 +42,12 @@ def download_boundaries(region: str, level: int = 1, path: Optional[str] = None)
         if not _pygadm_available:
             raise ImportError("pygadm is not installed. Please install with 'pip install gis-mcp[administrative-boundaries]'.")
         region = ALIASES.get(region.upper(), region)  
-        out_dir = Path(path) if path else DEFAULT_PATH
+        if path:
+            out_dir = resolve_path(path, relative_to_storage=True)
+        else:
+            # Use storage path with administrative_boundaries subdirectory
+            storage = get_storage_path()
+            out_dir = storage / "administrative_boundaries"
         out_dir.mkdir(parents=True, exist_ok=True)
 
         # new pygadm API

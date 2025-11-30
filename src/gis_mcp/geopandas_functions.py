@@ -3,6 +3,7 @@ import os
 import logging
 from typing import Any, Dict, List, Optional
 from .mcp import gis_mcp
+from .storage_config import resolve_path
 import geopandas as gpd
 import pandas as pd
 
@@ -93,14 +94,16 @@ def append_gpd(shapefile1_path: str, shapefile2_path: str, output_path: str) -> 
         combined_gdf = pd.concat([gdf1, gdf2], ignore_index=True)
 
         # Step 4: Save the combined GeoDataFrame to a new shapefile.
-        logger.info(f"Saving combined shapefile to {output_path}...")
-        combined_gdf.to_file(output_path, driver='ESRI Shapefile')
+        output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+        output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+        logger.info(f"Saving combined shapefile to {output_path_resolved}...")
+        combined_gdf.to_file(str(output_path_resolved), driver='ESRI Shapefile')
 
         return {
             "status": "success",
-            "message": f"Shapefiles concatenated successfully into '{output_path}'.",
+            "message": f"Shapefiles concatenated successfully into '{output_path_resolved}'.",
             "info": {
-                "output_path": output_path,
+                "output_path": str(output_path_resolved),
                 "num_features": len(combined_gdf),
                 "crs": str(combined_gdf.crs),
                 "columns": list(combined_gdf.columns)
@@ -150,14 +153,16 @@ def merge_gpd(shapefile1_path: str, shapefile2_path: str, output_path: str) -> D
             logger.warning("The merge result is empty. No matching records were found.")
 
         # Step 3: Save the merged GeoDataFrame to a new shapefile.
-        logger.info(f"Saving merged shapefile to {output_path}...")
-        merged_gdf.to_file(output_path, driver='ESRI Shapefile')
+        output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+        output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+        logger.info(f"Saving merged shapefile to {output_path_resolved}...")
+        merged_gdf.to_file(str(output_path_resolved), driver='ESRI Shapefile')
 
         return {
             "status": "success",
-            "message": f"Shapefiles merged successfully into '{output_path}'.",
+            "message": f"Shapefiles merged successfully into '{output_path_resolved}'.",
             "info": {
-                "output_path": output_path,
+                "output_path": str(output_path_resolved),
                 "merge_type": 'inner',
                 "num_features": len(merged_gdf),
                 "crs": str(merged_gdf.crs),
@@ -187,7 +192,10 @@ def overlay_gpd(gdf1_path: str, gdf2_path: str, how: str = "intersection", outpu
             gdf2 = gdf2.to_crs(gdf1.crs)
         result = gpd.overlay(gdf1, gdf2, how=how)
         if output_path:
-            result.to_file(output_path)
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+            result.to_file(str(output_path_resolved))
+            output_path = str(output_path_resolved)
         preview = result.head(5).to_dict(orient="records")
         return {
             "status": "success",
@@ -217,7 +225,10 @@ def dissolve_gpd(gdf_path: str, by: str = None, output_path: str = None) -> Dict
         gdf = gpd.read_file(gdf_path)
         result = gdf.dissolve(by=by)
         if output_path:
-            result.to_file(output_path)
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+            result.to_file(str(output_path_resolved))
+            output_path = str(output_path_resolved)
         preview = result.head(5).to_dict(orient="records")
         return {
             "status": "success",
@@ -246,7 +257,10 @@ def explode_gpd(gdf_path: str, output_path: str = None) -> Dict[str, Any]:
         gdf = gpd.read_file(gdf_path)
         result = gdf.explode(index_parts=True, ignore_index=True)
         if output_path:
-            result.to_file(output_path)
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+            result.to_file(str(output_path_resolved))
+            output_path = str(output_path_resolved)
         preview = result.head(5).to_dict(orient="records")
         return {
             "status": "success",
@@ -279,7 +293,10 @@ def clip_vector(gdf_path: str, clip_path: str, output_path: str = None) -> Dict[
             clip_gdf = clip_gdf.to_crs(gdf.crs)
         result = gpd.clip(gdf, clip_gdf)
         if output_path:
-            result.to_file(output_path)
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+            result.to_file(str(output_path_resolved))
+            output_path = str(output_path_resolved)
         preview = result.head(5).to_dict(orient="records")
         return {
             "status": "success",
@@ -314,7 +331,10 @@ def sjoin_gpd(left_path: str, right_path: str, how: str = "inner", predicate: st
             right = right.to_crs(left.crs)
         result = gpd.sjoin(left, right, how=how, predicate=predicate)
         if output_path:
-            result.to_file(output_path)
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+            result.to_file(str(output_path_resolved))
+            output_path = str(output_path_resolved)
         preview = result.head(5).to_dict(orient="records")
         return {
             "status": "success",
@@ -352,7 +372,10 @@ def sjoin_nearest_gpd(left_path: str, right_path: str, how: str = "left", max_di
             kwargs["max_distance"] = max_distance
         result = gpd.sjoin_nearest(left, right, **kwargs)
         if output_path:
-            result.to_file(output_path)
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+            result.to_file(str(output_path_resolved))
+            output_path = str(output_path_resolved)
         preview = result.head(5).to_dict(orient="records")
         return {
             "status": "success",
@@ -385,7 +408,10 @@ def point_in_polygon(points_path: str, polygons_path: str, output_path: str = No
             polygons = polygons.to_crs(points.crs)
         result = gpd.sjoin(points, polygons, how="left", predicate="within")
         if output_path:
-            result.to_file(output_path)
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+            result.to_file(str(output_path_resolved))
+            output_path = str(output_path_resolved)
         preview = result.head(5).to_dict(orient="records")
         return {
             "status": "success",
@@ -413,12 +439,14 @@ def write_file_gpd(gdf_path: str, output_path: str, driver: str = None) -> Dict[
     """
     try:
         gdf = gpd.read_file(gdf_path)
+        output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+        output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
         kwargs = {"driver": driver} if driver else {}
-        gdf.to_file(output_path, **kwargs)
+        gdf.to_file(str(output_path_resolved), **kwargs)
         return {
             "status": "success",
-            "message": f"GeoDataFrame exported to '{output_path}' successfully.",
-            "output_path": output_path,
+            "message": f"GeoDataFrame exported to '{output_path_resolved}' successfully.",
+            "output_path": str(output_path_resolved),
             "crs": str(gdf.crs),
             "num_features": len(gdf),
             "columns": list(gdf.columns),

@@ -3,6 +3,7 @@ import os
 import logging
 from typing import Any, Dict, List, Optional
 from .mcp import gis_mcp
+from .storage_config import resolve_path
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -102,12 +103,14 @@ def reclassify_raster(raster_path: str, reclass_map: dict, output_path: str) -> 
             reclass_data = np.copy(data)
             for old, new in reclass_map.items():
                 reclass_data[data == old] = new
-        with rasterio.open(output_path, "w", **profile) as dst:
+        output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+        output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+        with rasterio.open(str(output_path_resolved), "w", **profile) as dst:
             dst.write(reclass_data, 1)
         return {
             "status": "success",
-            "message": f"Raster reclassified and saved to '{output_path}'.",
-            "output_path": output_path
+            "message": f"Raster reclassified and saved to '{output_path_resolved}'.", 
+            "output_path": str(output_path_resolved)
         }
     except Exception as e:
         logger.error(f"Error in reclassify_raster: {str(e)}")
@@ -145,8 +148,11 @@ def focal_statistics(raster_path: str, statistic: str, size: int = 3, output_pat
                 raise ValueError(f"Unsupported statistic: {statistic}")
             filtered = generic_filter(data, func, size=size, mode='nearest')
         if output_path:
-            with rasterio.open(output_path, "w", **profile) as dst:
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+            with rasterio.open(str(output_path_resolved), "w", **profile) as dst:
                 dst.write(filtered, 1)
+            output_path = str(output_path_resolved)
         return {
             "status": "success",
             "message": f"Focal {statistic} computed successfully.",
@@ -182,9 +188,12 @@ def hillshade(raster_path: str, azimuth: float = 315, angle_altitude: float = 45
             shaded = np.sin(alt) * np.sin(slope) + np.cos(alt) * np.cos(slope) * np.cos(az - aspect)
             hillshade = np.clip(255 * shaded, 0, 255).astype('uint8')
         if output_path:
+            output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+            output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
             profile.update(dtype='uint8', count=1)
-            with rasterio.open(output_path, "w", **profile) as dst:
+            with rasterio.open(str(output_path_resolved), "w", **profile) as dst:
                 dst.write(hillshade, 1)
+            output_path = str(output_path_resolved)
         return {
             "status": "success",
             "message": "Hillshade generated successfully.",
@@ -220,12 +229,14 @@ def write_raster(array: list, reference_raster: str, output_path: str, dtype: st
                 profile.update(count=arr.shape[0])
             else:
                 raise ValueError("Array must be 2D or 3D.")
-        with rasterio.open(output_path, "w", **profile) as dst:
+        output_path_resolved = resolve_path(output_path, relative_to_storage=True)
+        output_path_resolved.parent.mkdir(parents=True, exist_ok=True)
+        with rasterio.open(str(output_path_resolved), "w", **profile) as dst:
             dst.write(arr)
         return {
             "status": "success",
-            "message": f"Raster written to '{output_path}' successfully.",
-            "output_path": output_path
+            "message": f"Raster written to '{output_path_resolved}' successfully.",
+            "output_path": str(output_path_resolved)
         }
     except Exception as e:
         logger.error(f"Error in write_raster: {str(e)}")
@@ -411,17 +422,17 @@ def clip_raster_with_shapefile(
             "transform": out_transform
         })
 
-        # Ensure destination directory exists
-        dst_path = os.path.expanduser(dst_clean)
-        os.makedirs(os.path.dirname(dst_path) or ".", exist_ok=True)
+        # Resolve destination path relative to storage
+        dst_path = resolve_path(dst_clean, relative_to_storage=True)
+        dst_path.parent.mkdir(parents=True, exist_ok=True)
 
         # Write the masked raster
-        with rasterio.open(dst_path, "w", **out_meta) as dst:
+        with rasterio.open(str(dst_path), "w", **out_meta) as dst:
             dst.write(out_image)
 
         return {
             "status": "success",
-            "destination": dst_path,
+            "destination": str(dst_path),
             "message": f"Raster masked and saved to '{dst_path}'."
         }
 
@@ -514,7 +525,7 @@ def resample_raster(
 
         return {
             "status":      "success",
-            "destination": dst_path,
+            "destination": str(dst_path),
             "message":     f"Raster resampled by factor {scale_factor} using '{resampling}' and saved to '{dst_path}'."
         }
 
@@ -594,7 +605,7 @@ def reproject_raster(
 
         return {
             "status":      "success",
-            "destination": dst_path,
+            "destination": str(dst_path),
             "message":     f"Raster reprojected to '{target_crs}' and saved to '{dst_path}'."
         }
 
@@ -639,7 +650,7 @@ def extract_band(
 
         return {
             "status": "success",
-            "destination": dst_path,
+            "destination": str(dst_path),
             "message": f"Band {band_index} extracted and saved to '{dst_path}'."
         }
 
@@ -813,7 +824,7 @@ def compute_ndvi(
 
         return {
             "status": "success",
-            "destination": dst_path,
+            "destination": str(dst_path),
             "message": f"NDVI calculated and saved to '{dst_path}'."
         }
 
@@ -972,7 +983,7 @@ def concat_bands(
 
         return {
             "status": "success",
-            "destination": dst_path,
+            "destination": str(dst_path),
             "message": f"{len(files)} single-band rasters concatenated into '{dst_path}'."
         }
 
@@ -1025,7 +1036,7 @@ def weighted_band_sum(
 
         return {
             "status": "success",
-            "destination": dst_path,
+            "destination": str(dst_path),
             "message": f"Weighted band sum computed and saved to '{dst_path}'."
         }
 

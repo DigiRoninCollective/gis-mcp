@@ -5,6 +5,7 @@ import osmnx as ox
 import networkx as nx
 
 from ..mcp import gis_mcp
+from ..storage_config import get_storage_path, resolve_path
 
 logger = logging.getLogger(__name__)
 
@@ -31,10 +32,12 @@ def download_street_network(place: str, network_type: str = "drive", file_path: 
         else:
             G = ox.graph_from_place(place, network_type=network_type)
         if file_path is not None:
-            file_path = Path(file_path)
+            file_path = resolve_path(file_path, relative_to_storage=True)
             file_path.parent.mkdir(parents=True, exist_ok=True)
         else:
-            out_dir = Path(__file__).resolve().parent / "movement_data"
+            # Use storage path with movement_data subdirectory
+            storage = get_storage_path()
+            out_dir = storage / "movement_data"
             out_dir.mkdir(parents=True, exist_ok=True)
             file_path = out_dir / f"{place.replace(',', '').replace(' ', '_')}_{network_type if custom_filter is None else 'custom'}.graphml"
         ox.save_graphml(G, file_path)

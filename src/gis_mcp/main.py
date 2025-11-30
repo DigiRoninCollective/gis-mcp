@@ -10,6 +10,7 @@ import argparse
 import sys
 import os
 from .mcp import gis_mcp
+from .storage_config import initialize_storage
 try:
     from .data import administrative_boundaries
 except ImportError as e:
@@ -84,12 +85,20 @@ def main():
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="GIS MCP Server")
     parser.add_argument("--debug", action="store_true", help="Enable debug logging")
+    parser.add_argument("--storage-path", type=str, default=None, 
+                       help="Path to storage folder for file operations (default: ~/.gis_mcp/data/)")
     args = parser.parse_args()
     
     # Set logging level
     if args.debug:
         logging.getLogger().setLevel(logging.DEBUG)
         logger.debug("Debug logging enabled")
+    
+    # Initialize storage configuration
+    # Check environment variable first, then command-line argument
+    storage_config = os.getenv('GIS_MCP_STORAGE_PATH', args.storage_path)
+    storage_path = initialize_storage(storage_config)
+    logger.info(f"Storage path initialized: {storage_path}")
     
     # Get transport configuration from environment variables
     transport = os.getenv('GIS_MCP_TRANSPORT', 'stdio').lower()
