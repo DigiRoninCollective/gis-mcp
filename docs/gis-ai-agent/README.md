@@ -38,6 +38,5 @@ Build a GIS AI agent using OpenAI's Agent SDK in Node.js. This tutorial is perfe
 
 ## Need Help?
 
-- Check the [troubleshooting sections](langchain.md#troubleshooting) in the individual tutorials
 - Visit our [GitHub repository](https://github.com/mahdin75/gis-mcp) for more examples
 - Join our [Discord community](https://discord.gg/SeVmVhVbk) for support
