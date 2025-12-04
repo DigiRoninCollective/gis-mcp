@@ -750,6 +750,12 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 | [pystac-client](https://github.com/stac-utils/pystac-client)                                        | Geospatial Data Collecting | Python client for STAC catalogs; search and access spatiotemporal assets                                      |
 | [Planetary Computer SDK for Python](https://github.com/microsoft/planetary-computer-sdk-for-python) | Geospatial Data Collecting | Python SDK for Microsoft Planetary Computer; auth and helpers for STAC/COGs                                   |
 
+## 🔗 Related MCP Servers
+
+| Server Name                                                 | Description                                                                                       |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [GeoServer MCP](https://github.com/mahdin75/geoserver-mcp/) | A Model Context Protocol (MCP) server implementation that connects LLMs to the GeoServer REST API |
+
 ## 📞 Support
 
 For support, please open an issue in the GitHub repository.

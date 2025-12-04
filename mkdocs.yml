@@ -147,6 +147,7 @@ nav:
           - Basic Spatial Analysis (claude): examples/basic_spatial_analysis_claude.md
           - CRS, Area & Distance Analysis: examples/crs_area_distance_analysis.md
       - Contributing: contributing.md
+      - Related MCP Servers: related-mcp-servers.md
   - Support:
       - Link to Discord: https://discord.gg/dzkXZsZK
       - Link to GitHub issues: https://github.com/mahdin75/gis-mcp/issues
