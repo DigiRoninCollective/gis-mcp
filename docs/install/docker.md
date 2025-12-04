@@ -95,6 +95,80 @@ For STDIO transport mode, configure your client to run the Docker container:
 }
 ```
 
+#### Persistent Storage with Docker Volumes
+
+By default, data written inside a Docker container is ephemeral and will be lost when the container is removed. To persist your GIS data, you should mount a volume to the container's storage directory.
+
+**Mount a host directory as a volume:**
+
+```bash
+docker run -p 9010:9010 \
+  -v /path/on/host:/app/.gis_mcp/data \
+  gis-mcp
+```
+
+**Use a named Docker volume:**
+
+```bash
+# Create a named volume
+docker volume create gis-mcp-data
+
+# Run container with the named volume
+docker run -p 9010:9010 \
+  -v gis-mcp-data:/app/.gis_mcp/data \
+  gis-mcp
+```
+
+**Custom storage path with volume mount:**
+
+If you want to use a custom storage path inside the container, you can combine volume mounting with the `--storage-path` argument:
+
+```bash
+docker run -p 9010:9010 \
+  -v /path/on/host:/custom/storage \
+  -e GIS_MCP_STORAGE_PATH=/custom/storage \
+  gis-mcp
+```
+
+Or using a named volume:
+
+```bash
+docker run -p 9010:9010 \
+  -v gis-mcp-data:/custom/storage \
+  -e GIS_MCP_STORAGE_PATH=/custom/storage \
+  gis-mcp
+```
+
+**Example with docker-compose:**
+
+```yaml
+version: "3.8"
+
+services:
+  gis-mcp:
+    image: gis-mcp:latest
+    ports:
+      - "9010:9010"
+    volumes:
+      - gis-mcp-data:/app/.gis_mcp/data
+    environment:
+      - GIS_MCP_TRANSPORT=http
+      - GIS_MCP_HOST=0.0.0.0
+      - GIS_MCP_PORT=9010
+
+volumes:
+  gis-mcp-data:
+```
+
+**Benefits of using volumes:**
+
+- **Data persistence:** Your GIS data, downloaded files, and outputs survive container restarts and removals
+- **Performance:** Named volumes are managed by Docker and can offer better performance
+- **Backup:** Easy to backup by copying the volume or host directory
+- **Sharing:** Multiple containers can share the same volume if needed
+
+For more details on storage configuration, see the [Storage Configuration](../storage-configuration.md) documentation.
+
 #### Notes
 
 - The Dockerfiles use Python 3.12 and include all system dependencies (GDAL, PROJ, GEOS)
@@ -102,5 +176,5 @@ For STDIO transport mode, configure your client to run the Docker container:
 - **HTTP transport mode is enabled by default** in both Dockerfiles
 - The default port is `9010` in both Dockerfiles
 - For production deployments, consider using specific image tags instead of `latest`
+- **Always use volumes for persistent storage** to avoid data loss when containers are removed
 - For more details on transport modes, see the [HTTP Transport Configuration](../http-transport.md) documentation
-
