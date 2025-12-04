@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Optional, Dict, Any, List, Union
 
 from ..mcp import gis_mcp
+from ..storage_config import get_storage_path, resolve_path
 
 from pystac_client import Client
 import planetary_computer as pc
@@ -18,7 +19,6 @@ from shapely.ops import transform as shapely_transform
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_PATH = Path(__file__).resolve().parent / "satellite_imagery"
 MPC_STAC_URL = "https://planetarycomputer.microsoft.com/api/stac/v1"
 
 
@@ -34,7 +34,12 @@ def _parse_bbox(bbox_str: Optional[str]) -> Optional[List[float]]:
     return [float(v) for v in parts]
 
 def _ensure_dir(p: Optional[str]) -> Path:
-    out_dir = Path(p) if p else DEFAULT_PATH
+    if p:
+        out_dir = resolve_path(p, relative_to_storage=True)
+    else:
+        # Use storage path with satellite_imagery subdirectory
+        storage = get_storage_path()
+        out_dir = storage / "satellite_imagery"
     out_dir.mkdir(parents=True, exist_ok=True)
     return out_dir
 
