@@ -2,7 +2,10 @@
 
 This guide helps you install and run the GIS MCP Server quickly using pip (with uv) and shows how to connect it to your IDE/client.
 
-> Quick tip: keep `gis-mcp-context-llm.txt` open/pinned in your editor (Cursor, Claude Desktop, etc.) so your AI agent has a ready-made summary of the GIS MCP tools and startup commands.
+## Vibe Coding
+If you’re building agents via vibe coding, keep these context files open in your editor so the LLM understands the GIS MCP server:
+- `llms.txt`: summarized context for smaller windows.
+- `llms-full.txt`: full context when your model has a larger window.
 
 ### Prerequisites
 
