@@ -19,6 +19,7 @@ theme:
 nav:
   - HOME: index.md
   - Getting Started: getting-started.md
+  - Vibe Coding: vibe-coding.md
   - DOCUMENTATIONS:
       - Installations:
           - Overview: install/README.md

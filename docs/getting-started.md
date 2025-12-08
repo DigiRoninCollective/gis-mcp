@@ -2,11 +2,6 @@
 
 This guide helps you install and run the GIS MCP Server quickly using pip (with uv) and shows how to connect it to your IDE/client.
 
-## Vibe Coding
-If you’re building agents via vibe coding, keep these context files open in your editor so the LLM understands the GIS MCP server:
-- `llms.txt`: summarized context for smaller windows.
-- `llms-full.txt`: full context when your model has a larger window.
-
 ### Prerequisites
 
 - Python 3.10+
