@@ -71,6 +71,13 @@ from . import (
     pysal_functions,
 )
 
+# Import storage endpoints to register HTTP routes (for HTTP/SSE transport)
+try:
+    from . import storage_endpoints
+except ImportError as e:
+    import logging
+    logging.warning(f"Storage endpoints could not be imported: {e}")
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -115,7 +122,15 @@ def main():
             port = int(os.getenv('GIS_MCP_PORT', '8080'))
             
             print(f"Starting GIS MCP server with {transport} transport on {host}:{port}")
-            print(f"MCP endpoint will be available at: http://{host}:{port}/mcp")
+            print(f"\nAvailable endpoints:")
+            if transport == 'sse':
+                print(f"  - MCP (SSE): http://{host}:{port}/sse")
+            else:
+                print(f"  - MCP (HTTP): http://{host}:{port}/mcp")
+            print(f"  - Storage upload: http://{host}:{port}/storage/upload")
+            print(f"  - Storage download: http://{host}:{port}/storage/download")
+            print(f"  - Storage list: http://{host}:{port}/storage/list")
+            print(f"\nFor detailed endpoint documentation, visit: https://gis-mcp.com/endpoints/")
             logger.info(f"{transport} transport enabled - {host}:{port}")
             
             gis_mcp.run(transport=transport, host=host, port=port)

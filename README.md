@@ -29,7 +29,7 @@ A Model Context Protocol (MCP) server implementation that connects Large Languag
 
 🌐 **Website:** [gis-mcp.com](https://gis-mcp.com)
 
-> Current version is 0.12.0 (Beta):
+> Current version is 0.13.0 (Beta):
 >
 > We welcome contributions and developers to join us in building this project.
 
@@ -83,6 +83,7 @@ GIS MCP Server empowers AI assistants with advanced geospatial intelligence. Key
 - 🔹 **Raster & Vector Support** – Process raster layers, compute indices like NDVI, clip, resample, and merge with vector data.
 - 🔹 **Spatial Statistics & Modeling** – Leverage PySAL for spatial autocorrelation, clustering, and neighborhood analysis.
 - 🔹 **Easy Integration** – Connect seamlessly with MCP-compatible clients like Claude Desktop or Cursor IDE.
+- 🔹 **HTTP/SSE Transport** – Run as HTTP service with RESTful storage endpoints for file upload/download operations.
 - 🔹 **Flexible & Extensible** – Supports Python-based GIS libraries and is ready for custom tools or workflow extensions.
 
 > 🌟 **Tip:** With GIS MCP Server, your AI can now “think spatially,” unlocking new capabilities for environmental analysis, mapping, and location intelligence.
@@ -213,7 +214,18 @@ export GIS_MCP_PORT=8080
 gis-mcp
 ```
 
-For more details on transport modes (STDIO vs HTTP), see the [HTTP Transport Configuration](docs/http-transport.md) documentation.
+When running in HTTP or SSE transport mode, the following endpoints are available:
+
+- **MCP endpoint**: `http://host:port/mcp` (HTTP) or `http://host:port/sse` (SSE)
+- **Storage endpoints**:
+  - `POST /storage/upload` - Upload files to server storage
+  - `GET /storage/download?path=<file>` - Download files from server storage
+  - `GET /storage/list?path=<dir>` - List files in server storage
+
+For more details on transport modes and complete endpoint documentation, see:
+
+- [HTTP Transport Configuration](docs/http-transport.md)
+- [Server Endpoints](docs/endpoints.md)
 
 #### pip Configuration
 

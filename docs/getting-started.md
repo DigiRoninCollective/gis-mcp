@@ -38,7 +38,18 @@ export GIS_MCP_PORT=8080
 gis-mcp
 ```
 
-For more details on transport modes (STDIO vs HTTP), see the [HTTP Transport Configuration](http-transport.md) documentation.
+When running in HTTP or SSE transport mode, the server provides the following endpoints:
+
+- **MCP endpoint**: `http://localhost:8080/mcp` (HTTP) or `http://localhost:8080/sse` (SSE)
+- **Storage endpoints**:
+  - `POST /storage/upload` - Upload files to server storage
+  - `GET /storage/download?path=<file>` - Download files from server storage
+  - `GET /storage/list?path=<dir>` - List files in server storage
+
+For more details on transport modes and complete endpoint documentation, see:
+
+- [HTTP Transport Configuration](http-transport.md)
+- [Server Endpoints](endpoints.md)
 
 ### Storage Configuration
 

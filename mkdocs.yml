@@ -29,6 +29,7 @@ nav:
       - Configuration:
           - Storage Configuration: storage-configuration.md
           - HTTP Transport: http-transport.md
+          - Server Endpoints: endpoints.md
       - GIS AI Agent:
           - Overview: gis-ai-agent/README.md
           - Langchain (Python): gis-ai-agent/langchain.md
