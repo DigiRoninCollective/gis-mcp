@@ -8,8 +8,9 @@
 [![Transport](https://img.shields.io/badge/Transport-HTTP%20%7C%20stdio-blue)](https://github.com/mahdin75/gis-mcp)
 [![Storage](https://img.shields.io/badge/Storage-Supported-4CAF50?logo=files&logoColor=white)](https://gis-mcp.com/storage-configuration/)
 
-[![LangChain](https://img.shields.io/badge/LangChain-AI%20Agent-FF6B35?logo=langchain&logoColor=white)](https://gis-mcp.com/gis-ai-agent/langchain)
-[![OpenAI NodeJS](https://img.shields.io/badge/OpenAI-NodeJS-111827?logo=openai&logoColor=white)](https://gis-mcp.com/gis-ai-agent/openai-nodejs)
+[![LangChain Agent Example](https://img.shields.io/badge/LangChain-Agent%20Example%20(Python)-3776AB?logo=langchain&logoColor=white)](https://gis-mcp.com/gis-ai-agent/langchain)
+[![OpenAI Agent Example](https://img.shields.io/badge/OpenAI-Agent%20Example%20(Node.js)-111827?logo=openai&logoColor=white)](https://gis-mcp.com/gis-ai-agent/openai-nodejs)
+
 
 [![Docs](https://deepwiki.com/badge.svg)](https://deepwiki.com/mahdin75/gis-mcp)
 [![Discord](https://img.shields.io/badge/Discord-Community-7289DA?logo=discord&logoColor=white)](https://discord.gg/SeVmVhVbk)
