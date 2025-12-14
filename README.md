@@ -3,6 +3,7 @@
 <div align="center">
 
 [![PyPI version](https://img.shields.io/pypi/v/gis-mcp.svg)](https://pypi.org/project/gis-mcp/)
+[![PyPI downloads](https://static.pepy.tech/personalized-badge/gis-mcp?period=total&units=international_system&left_color=grey&right_color=blue&left_text=PyPI%20downloads)](https://pepy.tech/project/gis-mcp)
 [![Docker Installation](https://img.shields.io/badge/Docker-Installation-2496ED?logo=docker&logoColor=white)](https://gis-mcp.com/install/docker/)
 [![Downloads](https://static.pepy.tech/personalized-badge/gis-mcp?period=total&units=international_system&left_color=grey&right_color=blue&left_text=PyPI%20downloads)](https://pepy.tech/project/gis-mcp)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mahdin75/gis-mcp)
@@ -14,12 +15,14 @@
 [![Satellite](https://img.shields.io/badge/Satellite-Imagery-6C5CE7?logo=satellite&logoColor=white)](https://gis-mcp.com/satellite-imagery-functions/)
 [![Administrative](https://img.shields.io/badge/Administrative-Boundaries-7289DA?logo=map&logoColor=white)](https://gis-mcp.com/administrative-boundaries-functions/)
 [![Transport](https://img.shields.io/badge/Transport-HTTP%20%7C%20stdio-blue)](https://github.com/mahdin75/gis-mcp)
-[![Storage Config](https://img.shields.io/badge/Storage-Supported-4CAF50?logo=files&logoColor=white)](https://gis-mcp.com/storage-configuration/)
-[![Build Agent with LangChain](https://img.shields.io/badge/LangChain-Build%20AI%20Agent-FF6B35?logo=langchain&logoColor=white)](https://gis-mcp.com/gis-ai-agent/langchain)
-[![Build Agent with OpenAI NodeJS](https://img.shields.io/badge/OpenAI%20NodeJS-111827?logo=openai&logoColor=white)](https://gis-mcp.com/gis-ai-agent/openai-nodejs)
-[![YouTube](https://img.shields.io/badge/YouTube-B91C1C?logo=youtube&logoColor=white)](https://www.youtube.com/@gis-mcp)
-[![Discord](https://img.shields.io/badge/Discord-7289DA?logo=discord&logoColor=white)](https://discord.gg/SeVmVhVbk)
-[![Vibe Coding](https://img.shields.io/badge/Vibe%20Coding-Context%20Files-6C5CE7)](#vibe-coding)
+[![Storage](https://img.shields.io/badge/Storage-Supported-4CAF50?logo=files&logoColor=white)](https://gis-mcp.com/storage-configuration/)
+
+[![LangChain Agent Example](<https://img.shields.io/badge/LangChain-Agent%20Example%20(Python)-3776AB?logo=langchain&logoColor=white>)](https://gis-mcp.com/gis-ai-agent/langchain)
+[![OpenAI Agent Example](<https://img.shields.io/badge/OpenAI-Agent%20Example%20(Node.js)-111827?logo=openai&logoColor=white>)](https://gis-mcp.com/gis-ai-agent/openai-nodejs)
+
+[![Docs](https://deepwiki.com/badge.svg)](https://deepwiki.com/mahdin75/gis-mcp)
+[![Discord](https://img.shields.io/badge/Discord-Community-7289DA?logo=discord&logoColor=white)](https://discord.gg/SeVmVhVbk)
+[![YouTube](https://img.shields.io/badge/YouTube-Tutorials-B91C1C?logo=youtube&logoColor=white)](https://www.youtube.com/@gis-mcp)
 
 </div>
 
