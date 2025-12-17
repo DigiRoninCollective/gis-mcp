@@ -18,9 +18,45 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      - name: Pull base Docker image with retries
+        run: |
+          max_attempts=5
+          attempt=1
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt of $max_attempts: Pulling python:3.12-slim..."
+            if docker pull python:3.12-slim; then
+              echo "Successfully pulled base image"
+              break
+            else
+              if [ $attempt -eq $max_attempts ]; then
+                echo "Failed to pull base image after $max_attempts attempts"
+                exit 1
+              fi
+              echo "Attempt $attempt failed, waiting before retry..."
+              sleep $((attempt * 10))
+              attempt=$((attempt + 1))
+            fi
+          done
+
       - name: Build Docker image from Dockerfile.local
         run: |
-          docker build -f Dockerfile.local -t gis-mcp:local .
+          max_attempts=3
+          attempt=1
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt of $max_attempts: Building Docker image..."
+            if docker build -f Dockerfile.local -t gis-mcp:local .; then
+              echo "Successfully built Docker image"
+              break
+            else
+              if [ $attempt -eq $max_attempts ]; then
+                echo "Failed to build Docker image after $max_attempts attempts"
+                exit 1
+              fi
+              echo "Attempt $attempt failed, waiting before retry..."
+              sleep $((attempt * 15))
+              attempt=$((attempt + 1))
+            fi
+          done
 
       - name: Start GIS MCP server in background
         run: |
