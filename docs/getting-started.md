@@ -207,7 +207,7 @@ For more information on fetching external datasets (climate, ecology, movement, 
 
 Ready to create your own AI agent that can perform geospatial operations? Our comprehensive tutorial will guide you from zero to hero!
 
-👉 **[Build Your First GIS AI Agent with LangChain →](gis-ai-agent.md)**
+👉 **[Build Your First GIS AI Agent with LangChain →](/gis-ai-agent)**
 
 Learn how to:
 
