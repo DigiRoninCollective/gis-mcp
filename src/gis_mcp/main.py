@@ -69,6 +69,8 @@ from . import (
     rasterio_functions,
     pyproj_functions,
     pysal_functions,
+    transmission_line_functions,
+    kml_integration_functions,
 )
 
 # Import storage endpoints to register HTTP routes (for HTTP/SSE transport)
